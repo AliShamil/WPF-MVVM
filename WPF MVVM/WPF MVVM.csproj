@@ -14,8 +14,6 @@
 
   <ItemGroup>
     <Folder Include="StaticFiles\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

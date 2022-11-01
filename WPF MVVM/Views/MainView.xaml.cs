@@ -18,14 +18,6 @@ namespace WPF_MVVM.Views
 
     public partial class MainView : Window
     {
-        
-        public MainView()
-        {
-            InitializeComponent();
-           // DataContext = this;
-
-        }
-
-
+        public MainView() => InitializeComponent();
     }
 }
