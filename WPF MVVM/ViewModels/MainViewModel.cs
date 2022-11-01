@@ -10,6 +10,7 @@ using WPF_MVVM.Command;
 using WPF_MVVM.Models;
 using WPF_MVVM.Repositories.Abstracts;
 using WPF_MVVM.Repositories.Concretes;
+using WPF_MVVM.Views;
 
 namespace WPF_MVVM.ViewModels;
 
@@ -20,7 +21,7 @@ public class MainViewModel
     public Car? SelectedCar { get; set; }
 
     public ICommand ShowCommand { get; set; }
-    public ICommand Addommand { get; set; }
+    public ICommand AddCommand { get; set; }
     public ICommand UpdateCommand { get; set; }
     public ICommand DeleteCommand { get; set; }
 
@@ -29,6 +30,7 @@ public class MainViewModel
         _carRepository=carRepository;
         Cars = new(_carRepository.GetList()??new List<Car>());
         ShowCommand = new RelayCommand(ExecuteShowCommand, CanExecuteShowCommand);
+        AddCommand = new RelayCommand(ExecuteAddCommand);
     }
 
     void ExecuteShowCommand(object? parameter)
@@ -37,4 +39,19 @@ public class MainViewModel
 
     bool CanExecuteShowCommand(object? parameter)
     => SelectedCar != null;
+
+
+    void ExecuteAddCommand(object? parametr)
+    {
+        AddViewModel addViewModel = new();
+
+        AddView addView = new();
+        addView.DataContext = addViewModel;
+
+        addView.ShowDialog();
+
+        if (addViewModel.DialogResult)
+            Cars.Add(addViewModel.NewCar);
+
+    }
 }

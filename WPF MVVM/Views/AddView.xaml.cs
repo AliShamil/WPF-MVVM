@@ -11,11 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WPF_MVVM.Command;
 
 namespace WPF_MVVM.Views;
 
-public partial class MainView : Window
+public partial class AddView : Window
 {
-    public MainView() => InitializeComponent();
+    public AddView() => InitializeComponent();
 }
