@@ -54,7 +54,7 @@ public class MainViewModel
         addView.ShowDialog();
 
         if (addViewModel.DialogResult)
-            Cars.Add(addViewModel.NewCar);
+            Cars.Add(addViewModel._newCar);
 
     }
 

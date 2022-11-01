@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM.Views"
         mc:Ignorable="d"
-        Title="AddView" Height="450" Width="800">
+        Title="AddView" Height="387" Width="226" MaxHeight="387" MaxWidth="226" WindowStartupLocation="CenterScreen">
+  
+    
     <StackPanel HorizontalAlignment="Center">
         <TextBlock Text="Make"/>
         <TextBox Text="{Binding NewCar.Make,UpdateSourceTrigger=PropertyChanged}"/>

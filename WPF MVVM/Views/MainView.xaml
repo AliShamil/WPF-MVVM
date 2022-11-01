@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM.Views" xmlns:VievModels="clr-namespace:WPF_MVVM.ViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="442" Width="800">
+        Title="MainView" Height="442" Width="390" MaxHeight="442" MaxWidth="390" WindowStartupLocation="CenterScreen">
     <!--<StackPanel>
         <TextBox></TextBox>
         <Button
@@ -20,7 +20,7 @@
         <VievModels:MainViewModel></VievModels:MainViewModel>
     </Window.DataContext>-->
     
-    <StackPanel HorizontalAlignment="Center">
+    <StackPanel Name="mainPanel" HorizontalAlignment="Center">
         <ComboBox SelectedItem="{Binding SelectedCar}" DisplayMemberPath="Model" ItemsSource="{Binding Cars}"></ComboBox>
         <TextBlock Text="Make"/>
         <TextBlock Text="{Binding SelectedCar.Make}"/>

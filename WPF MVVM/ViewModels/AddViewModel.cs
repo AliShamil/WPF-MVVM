@@ -13,7 +13,7 @@ namespace WPF_MVVM.ViewModels;
 
 public  class AddViewModel
 {
-    public Car NewCar { get; set; } = new();
+    public Car _newCar { get; set; } = new();
 
     public bool DialogResult { get; set; }
 
