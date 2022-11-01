@@ -29,15 +29,16 @@ public class MainViewModel
     {
         _carRepository=carRepository;
         Cars = new(_carRepository.GetList()??new List<Car>());
-        ShowCommand = new RelayCommand(ExecuteShowCommand, CanExecuteShowCommand);
+        ShowCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
         AddCommand = new RelayCommand(ExecuteAddCommand);
+        DeleteCommand = new RelayCommand(ExecuteDeleteCommand, CanExecuteCommand);
     }
 
     void ExecuteShowCommand(object? parameter)
      => MessageBox.Show(SelectedCar?.Model);
 
 
-    bool CanExecuteShowCommand(object? parameter)
+    bool CanExecuteCommand(object? parameter)
     => SelectedCar != null;
 
 
@@ -54,4 +55,6 @@ public class MainViewModel
             Cars.Add(addViewModel.NewCar);
 
     }
+
+    void ExecuteDeleteCommand(object? parametr) => Cars.Remove(SelectedCar!);
 }
