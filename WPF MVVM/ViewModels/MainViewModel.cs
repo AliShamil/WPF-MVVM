@@ -32,6 +32,8 @@ public class MainViewModel
         ShowCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
         AddCommand = new RelayCommand(ExecuteAddCommand);
         DeleteCommand = new RelayCommand(ExecuteDeleteCommand, CanExecuteCommand);
+        UpdateCommand = new RelayCommand(ExecuteUpdateCommand, CanExecuteCommand);
+       
     }
 
     void ExecuteShowCommand(object? parameter)
@@ -54,6 +56,16 @@ public class MainViewModel
         if (addViewModel.DialogResult)
             Cars.Add(addViewModel.NewCar);
 
+    }
+
+    void ExecuteUpdateCommand(object? parametr)
+    {
+        UpdateViewModel updateViewModel = new(SelectedCar!);
+
+        UpdateView updateView = new();
+        updateView.DataContext = updateViewModel;
+
+        updateView.ShowDialog();
     }
 
     void ExecuteDeleteCommand(object? parametr) => Cars.Remove(SelectedCar!);
