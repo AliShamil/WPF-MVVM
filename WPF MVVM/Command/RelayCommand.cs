@@ -15,8 +15,6 @@ namespace WPF_MVVM.Command
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-
-
         private readonly Action<object?> _execute;
         private readonly Predicate<object?>? _canExecute;
 
@@ -29,12 +27,7 @@ namespace WPF_MVVM.Command
         }
 
         public void Execute(object? parameter) => _execute.Invoke(parameter);
-
-
-        public bool CanExecute(object? parameter)
-        {
-            return _canExecute is null || _canExecute.Invoke(parameter);
-        }
+        public bool CanExecute(object? parameter) => _canExecute is null || _canExecute.Invoke(parameter);
 
     }
 }

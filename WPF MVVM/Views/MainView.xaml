@@ -3,38 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_MVVM.Views" xmlns:VievModels="clr-namespace:WPF_MVVM.ViewModels"
+        xmlns:views="clr-namespace:WPF_MVVM.Views" xmlns:ViewModels="clr-namespace:WPF_MVVM.ViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="442" Width="390" MaxHeight="442" MaxWidth="390" WindowStartupLocation="CenterScreen">
-    <!--<StackPanel>
-        <TextBox></TextBox>
-        <Button
-            
-            Command="{Binding ShowCommand}"
-            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Content="Show">
-            
-        </Button>
-    </StackPanel>-->
-    <!--<Window.DataContext>
-        <VievModels:MainViewModel></VievModels:MainViewModel>
-    </Window.DataContext>-->
-    
-    <StackPanel Name="mainPanel" HorizontalAlignment="Center">
-        <ComboBox SelectedItem="{Binding SelectedCar}" DisplayMemberPath="Model" ItemsSource="{Binding Cars}"></ComboBox>
-        <TextBlock Text="Make"/>
-        <TextBlock Text="{Binding SelectedCar.Make}"/>
-        <TextBlock Text="Model"/>
-        <TextBlock Text="{Binding SelectedCar.Model}"/>
-        <TextBlock Text="Year"/>
-        <TextBlock Text="{Binding SelectedCar.Year}"/>
+        Title="MainView" Width="400" Height="455" WindowStartupLocation="CenterScreen">
 
-        <StackPanel Orientation="Horizontal">
-            <Button Command="{Binding ShowCommand}" Content="Show"/>
-            <Button Command="{Binding AddCommand}" Content="Add"/>
-            <Button Command="{Binding UpdateCommand}" Content="Update"/>
-            <Button Command="{Binding DeleteCommand}" Content="Delete"/>
-        </StackPanel>
-    </StackPanel>
-    
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type ViewModels:HomeViewModel}">
+                <views:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:AddViewModel}">
+                <views:AddView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModels:UpdateViewModel}">
+                <views:UpdateView/>
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
+
 </Window>

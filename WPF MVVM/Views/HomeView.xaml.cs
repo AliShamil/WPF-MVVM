@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace WPF_MVVM.Views;
 
-public partial class AddView : UserControl
+public partial class HomeView : UserControl
 {
-    public AddView() => InitializeComponent();
+    public HomeView()=> InitializeComponent();   
 }

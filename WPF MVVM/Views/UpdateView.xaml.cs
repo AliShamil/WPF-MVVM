@@ -12,16 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WPF_MVVM.Views
+namespace WPF_MVVM.Views;
+
+public partial class UpdateView : UserControl
 {
-    /// <summary>
-    /// UpdateView.xaml etkileşim mantığı
-    /// </summary>
-    public partial class UpdateView : Window
-    {
-        public UpdateView()
-        {
-            InitializeComponent();
-        }
-    }
+    public UpdateView() => InitializeComponent();
 }
